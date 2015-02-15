@@ -29,3 +29,8 @@ body
     font-weight: bolder;
     text-align: center;
 }
+#container label
+{
+    display: block;
+    margin-bottom: 2%;
+}

@@ -1,0 +1,16 @@
+<h3>There are <span id="count">{{getTotalContacts()}}</span> Contacts So far</h3>
+<span><a href="#/add">Add</a></span>
+<table>
+    <tr id="h">
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Phone</td>
+        <td>Email</td>
+    </tr>
+    <tr ng-repeat = "contact in contacts">
+        <td><a href="#/details/{{contact.id}}">{{contact.first_name}}</a></td>
+        <td>{{contact.last_name}}</td>
+        <td>{{contact.Phone}}</td>
+        <td>{{contact.Email}}</td>
+    </tr>
+</table>
