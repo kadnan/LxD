@@ -18,17 +18,21 @@ ngAddressBook.config(['$routeProvider',
             });
     }]);
 // add a controller to it
-ngAddressBook.controller('ngAddressListController', ['$scope', function ($scope)
-    {
-        $scope.contacts = [
-            {id:1,first_name:'Jane', last_name:'Doe','Phone':'123-456789','Email':'jane@example.com'},
-            {id:2,first_name:'Jhon', last_name:'Doe','Phone':'123-456789','Email':'jhon@example.com'}
-        ];
-        $scope.getTotalContacts = function () {
-            return $scope.contacts.length;
-        };
-    }]);
 
+
+ngAddressBook.controller('ngAddressListController', function ($scope,$http) {
+
+    $http.get('api.php').success(function(data) {
+        $scope.contacts = data;
+    });
+    $scope.contacts1 = [
+        {id:1,first_name:'Jane', last_name:'Doe','Phone':'123-456789','Email':'jane@example.com'},
+        {id:2,first_name:'Jhon', last_name:'Doe','Phone':'123-456789','Email':'jhon@example.com'}
+    ];
+    $scope.getTotalContacts = function () {
+        return $scope.contacts.length;
+    };
+});
 
 
     ngAddressBook.controller('ngAddressDetailsController', ['$scope', '$routeParams',
